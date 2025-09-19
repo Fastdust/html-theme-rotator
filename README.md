@@ -10,10 +10,20 @@ Simple tool that automatically rotates through theme folders, copying their enti
 
 ## Quick Setup
 
+**One-liner install:**
 ```bash
-# Install
-sudo ./setup.sh
+wget -O - https://github.com/Fastdust/html-theme-rotator/archive/refs/heads/main.tar.gz | tar -xz && cd html-theme-rotator-main && sudo ./setup.sh
+```
 
+**Manual install:**
+```bash
+git clone https://github.com/Fastdust/html-theme-rotator.git
+cd html-theme-rotator
+sudo ./setup.sh
+```
+
+**Usage:**
+```bash
 # Run once
 python3 rotator.py --once
 
