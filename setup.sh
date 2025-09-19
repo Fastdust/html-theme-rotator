@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 # HTML Theme Rotator - Simple Setup Script
 
@@ -57,7 +57,7 @@ echo "Installation complete!"
 echo ""
 echo "Commands:"
 echo "  sudo systemctl start html-rotator    # Start service"
-echo "  sudo systemctl stop html-rotator     # Stop service" 
+echo "  sudo systemctl stop html-rotator     # Stop service"
 echo "  sudo systemctl status html-rotator   # Check status"
 echo "  python3 $INSTALL_DIR/rotator.py --list  # List themes"
 echo "  python3 $INSTALL_DIR/rotator.py --once  # Run once"
