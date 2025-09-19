@@ -1,0 +1,13 @@
+# Logs
+*.log
+
+# Backups (if enabled)
+backup_*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db

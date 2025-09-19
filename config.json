@@ -1,0 +1,7 @@
+{
+  "themes_dir": "themes",
+  "output_dir": "/var/www/html",
+  "interval": 3600,
+  "mode": "random",
+  "backup": false
+}
