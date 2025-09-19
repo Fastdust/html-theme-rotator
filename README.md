@@ -35,23 +35,74 @@ Edit `config.json`:
 {
   "themes_dir": "themes",
   "output_dir": "/var/www/html",
-  "interval": 3600,
+  "interval": 86400,
   "mode": "random", 
   "backup": false
 }
 ```
 
+**Interval options:**
+- `3600` = 1 hour
+- `86400` = 24 hours (daily)
+- `604800` = 7 days (weekly)
+
 ## Usage
 
+**Option 1: Manual rotation**
 ```bash
 # List available themes
 python3 rotator.py --list
 
 # Rotate once and exit
 python3 rotator.py --once
+```
 
+**Option 2: Continuous service**
+```bash
 # Run as daemon (continuous)
 python3 rotator.py --daemon
+
+# Or via systemd
+sudo systemctl start html-rotator
+```
+
+**Option 3: Daily cron job (recommended)**
+```bash
+# Add to crontab for daily rotation at 9 AM
+(crontab -l 2>/dev/null; echo "0 9 * * * /opt/html-rotator/daily-rotate.sh") | crontab -
+
+# Test the daily script
+sudo /opt/html-rotator/daily-rotate.sh
+```
+
+## Testing Daily Rotation
+
+**1. Test the script manually:**
+```bash
+sudo /opt/html-rotator/daily-rotate.sh
+```
+
+**2. Check if cron job is scheduled:**
+```bash
+# View current crontab
+crontab -l
+
+# Should show: 0 9 * * * /opt/html-rotator/daily-rotate.sh
+```
+
+**3. Monitor rotation in logs:**
+```bash
+# Watch real-time logs
+tail -f /var/log/rotator.log
+
+# Check recent rotations
+tail -20 /var/log/rotator.log
+```
+
+**4. Test with different time (for immediate testing):**
+```bash
+# Add a test rotation for next minute
+echo "$(date -d '+1 minute' +'%M %H * * *') /opt/html-rotator/daily-rotate.sh" | crontab -
 ```
 
 That's it! Simple and effective.

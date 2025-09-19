@@ -1,7 +1,7 @@
 {
   "themes_dir": "themes",
   "output_dir": "/var/www/html",
-  "interval": 3600,
+  "interval": 86400,
   "mode": "random",
   "backup": false
 }
